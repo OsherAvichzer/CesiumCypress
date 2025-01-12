@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("getMap", () => {
+  return cy.get("canvas");
+});
+
+Cypress.Commands.add("shortenedCoordinate", () => {
+  return {
+    latitude: parseFloat(coordinate.latitude.toFixed(2)),
+    longitude: parseFloat(coordinate.longitude.toFixed(2)),
+    // altitude: parseFloat(coordinate.altitude.toFixed(2)),
+  };
+})
