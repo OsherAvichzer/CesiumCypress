@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import "./commands";
+import "cypress-real-events";
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   if (err.message.includes("Failed to fetch")) return false;
@@ -31,13 +32,15 @@ Cypress.on("uncaught:exception", (err, runnable) => {
 // });
 
 Cypress.on("log:added", (log) => {
-    if (log.instrument === "command" && log.name === "request" && log.message.includes("map")) {
-      // Suppress the log in Cypress Test Runner
-      log.message = "";
-  
-      // Suppress the browser console log
-      console.debug = () => {}; // Temporarily override console.debug
-    }
-  });
+  if (
+    log.instrument === "command" &&
+    log.name === "request" &&
+    log.message.includes("map")
+  ) {
+    // Suppress the log in Cypress Test Runner
+    log.message = "";
 
-  
+    // Suppress the browser console log
+    console.debug = () => {}; // Temporarily override console.debug
+  }
+});

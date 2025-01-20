@@ -1,9 +1,12 @@
 {
   "devDependencies": {
-    "cypress": "^13.17.0"
+    "cypress": "^13.17.0",
+    "pixelmatch": "^6.0.0",
+    "pngjs": "^7.0.0"
   },
   "dependencies": {
     "@turf/turf": "^7.2.0",
-    "cesium": "^1.125.0"
+    "cesium": "^1.125.0",
+    "cypress-real-events": "^1.13.0"
   }
 }

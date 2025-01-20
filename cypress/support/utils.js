@@ -10,3 +10,4 @@ export const entitysCoordinate = (Cesium, viewer, index) => {
   return { longitude, latitude };
 };
 
+
